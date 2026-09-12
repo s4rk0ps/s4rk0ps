@@ -25,7 +25,7 @@
   </defs>
 
   <!-- Фон: raw-ссылка на картинку -->
-  <image href="https://github.com/s4rk0ps/s4rk0ps/raw/main/fonbase67.jpg" 
+  <image href="https://raw.githubusercontent.com/s4rk0ps/s4rk0ps/main/fonbase67.jpg" 
          x="0" y="0" width="2560" height="1020" 
          preserveAspectRatio="xMidYMid slice"/>
 
