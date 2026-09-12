@@ -4,6 +4,7 @@
 **s4rk0ps/s4rk0ps** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
+<img width="1536" height="512" alt="asd" src="https://github.com/user-attachments/assets/fd28034a-56c5-45e4-a7ec-ba37d096283a" />
 
 - 🔭 I’m currently working on ...
 - 🌱 I’m currently learning ...
