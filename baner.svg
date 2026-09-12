@@ -26,10 +26,11 @@
     </style>
   </defs>
 
+  <!-- ИСПРАВЛЕННАЯ ССЫЛКА (RAW) -->
+  <!-- Если хотите использовать base64, замените ссылку на: href="data:image/jpeg;base64,ВАША_СТРОКА" -->
   <image href="https://raw.githubusercontent.com/s4rk0ps/s4rk0ps/main/fon.png" 
          x="0" y="0" width="1200" height="400" 
          preserveAspectRatio="xMidYMid slice"/>
-  <!-- ========================================== -->
 
   <!-- Затемнение левой части под текст -->
   <rect x="0" y="0" width="1200" height="400" fill="url(#fade)"/>
