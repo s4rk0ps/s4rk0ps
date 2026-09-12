@@ -1,0 +1,65 @@
+<svg width="1200" height="400" viewBox="0 0 1200 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">s4rk0ps — DevOps banner</title>
+  <desc id="desc">Terminal window over a supermarket background with animated cursor.</desc>
+
+  <defs>
+    <!-- Свечение терминала -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Градиент затемнения слева -->
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0D1117" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#0D1117" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0D1117" stop-opacity="0"/>
+    </linearGradient>
+
+    <style>
+      .mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace; }
+      .cursor { animation: blink 1s steps(1) infinite; }
+      @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+    </style>
+  </defs>
+
+  <!-- Фон -->
+  <image href="https://raw.githubusercontent.com/s4rk0ps/s4rk0ps/main/fon.png"
+         x="0" y="0" width="1200" height="400"
+         preserveAspectRatio="xMidYMid slice"/>
+
+  <!-- Затемнение левой части под текст -->
+  <rect x="0" y="0" width="1200" height="400" fill="url(#fade)"/>
+
+  <!-- Терминал -->
+  <g filter="url(#glow)">
+    <rect x="80" y="70" width="600" height="270" rx="14"
+          fill="#0D1117" fill-opacity="0.92"
+          stroke="#2DD4BF" stroke-width="2"/>
+  </g>
+
+  <!-- Шапка терминала -->
+  <line x1="80" y1="110" x2="680" y2="110" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
+  <circle cx="108" cy="90" r="6" fill="#F87171"/>
+  <circle cx="130" cy="90" r="6" fill="#FBBF24"/>
+  <circle cx="152" cy="90" r="6" fill="#34D399"/>
+  <text x="380" y="95" class="mono" font-size="12" fill="#8B949E" text-anchor="middle">s4rk0ps@github: ~/profile</text>
+
+  <!-- Текст внутри терминала -->
+  <g class="mono" font-size="14">
+    <text x="108" y="145" fill="#8B949E">$ <tspan fill="#F8FAFC">whoami</tspan></text>
+    <text x="108" y="172" fill="#2DD4BF">&gt; 5up.5vc.4c4rn0ph0b1cs</text>
+
+    <text x="108" y="205" fill="#8B949E">$ <tspan fill="#F8FAFC">cat /etc/status.conf</tspan></text>
+    <text x="108" y="232" fill="#8B949E">&gt; <tspan fill="#F8FAFC">role</tspan>     : <tspan fill="#2DD4BF">Aspiring DevOps Engineer</tspan></text>
+    <text x="108" y="257" fill="#8B949E">&gt; <tspan fill="#F8FAFC">stack</tspan>    : <tspan fill="#2DD4BF">Cloud / CI/CD / Infra</tspan></text>
+    <text x="108" y="282" fill="#8B949E">&gt; <tspan fill="#F8FAFC">location</tspan> : <tspan fill="#2DD4BF">Saint Petersburg</tspan></text>
+    <text x="108" y="307" fill="#8B949E">&gt; <tspan fill="#F8FAFC">status</tspan>   : <tspan fill="#2DD4BF">[ ONLINE / LEARNING ]</tspan></text>
+  </g>
+
+  <!-- Мигающий курсор -->
+  <rect class="cursor" x="108" y="320" width="9" height="16" fill="#2DD4BF"/>
+</svg>
