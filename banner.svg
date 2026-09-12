@@ -25,9 +25,9 @@
   </defs>
 
   <!-- ФОН: вставь сюда свою base64-строку целиком -->
-  <image href="ВСТАВЬ_СЮДА_СТРОКУ_BASE64" 
-         x="0" y="0" width="1200" height="400" 
-         preserveAspectRatio="xMidYMid slice"/>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/s4rk0ps/s4rk0ps/main/fonbase67.jpg" alt="Фон" width="100%" />
+</div>
 
   <rect x="0" y="0" width="1200" height="400" fill="url(#fade)"/>
 
