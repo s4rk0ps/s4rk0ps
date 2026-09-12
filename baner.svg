@@ -25,9 +25,9 @@
   </defs>
 
   <!-- Фон: raw-ссылка на картинку -->
-  <image href="https://raw.githubusercontent.com/s4rk0ps/s4rk0ps/main/fonbase67.jpg" 
-         x="0" y="0" width="2560" height="1020" 
-         preserveAspectRatio="xMidYMid slice"/>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/s4rk0ps/s4rk0ps/main/fonbase67.jpg" alt="Фон профиля" width="100%" />
+</div>
 
   <!-- Затемнение левой части под текст -->
   <rect x="0" y="0" width="1200" height="400" fill="url(#fade)"/>
