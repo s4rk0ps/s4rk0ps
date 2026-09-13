@@ -17,16 +17,10 @@
       <stop offset="100%" stop-color="#0D1117" stop-opacity="0"/>
     </linearGradient>
 
-    <!-- Пути для текста по сторонам -->
     <path id="topPath"    d="M 26 10 L 1174 10"     fill="none"/>
     <path id="rightPath"  d="M 1190 26 L 1190 454"  fill="none"/>
     <path id="bottomPath" d="M 1174 470 L 26 470"   fill="none"/>
     <path id="leftPath"   d="M 10 454 L 10 26"      fill="none"/>
-
-    <!-- Clip-path для бегущей строки в шапке терминала -->
-    <clipPath id="headerClip">
-      <rect x="60" y="120" width="500" height="38" rx="14"/>
-    </clipPath>
 
     <style>
       .mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace; }
@@ -36,15 +30,11 @@
       .flow { stroke-dasharray: 6 6; animation: dashFlow 1.5s linear infinite; }
       @keyframes dashFlow { to { stroke-dashoffset: -24; } }
 
-      .wifi1 { animation: wifiBlink 1.5s ease-in-out infinite; }
-      .wifi2 { animation: wifiBlink 1.5s ease-in-out infinite 0.3s; }
-      .wifi3 { animation: wifiBlink 1.5s ease-in-out infinite 0.6s; }
-      @keyframes wifiBlink { 0%,100% { opacity: 0.15; } 50% { opacity: 1; } }
-
       .online { animation: onlinePulse 2s ease-in-out infinite; }
       @keyframes onlinePulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
 
-      .mtx { fill: #2DD4BF; fill-opacity: 0.2; }
+      .oniEye { animation: oniBlink 3s ease-in-out infinite; }
+      @keyframes oniBlink { 0%,85%,100% { opacity: 1; } 90% { opacity: 0.2; } }
     </style>
   </defs>
 
@@ -55,74 +45,46 @@
 
   <rect x="0" y="0" width="1200" height="480" fill="url(#fade)"/>
 
-  <!-- ========== MATRIX EFFECT ========== -->
-  <g class="mono" font-size="14">
-    <text x="640" y="0" class="mtx">ﾊ 3 ｱ 9 ﾐ 1 ｷ 0 ﾂ 4 ﾈ 2 ｼ 8 ﾎ 7 5 ﾒ 6 ﾃ
-      <animateTransform attributeName="transform" type="translate" values="0 -500; 0 500" dur="5s" repeatCount="indefinite"/>
-    </text>
-    <text x="710" y="0" class="mtx">ｱ 5 ﾒ 2 ﾃ 9 ｷ 4 ﾈ 1 ﾂ 7 ﾐ 3 ｼ 6 8 ﾎ 0 ﾊ
-      <animateTransform attributeName="transform" type="translate" values="0 -500; 0 500" dur="7s" repeatCount="indefinite" begin="1s"/>
-    </text>
-    <text x="780" y="0" class="mtx">3 ﾂ 8 ｱ 1 ﾎ 6 ｼ 0 ﾐ 5 ﾈ 2 ｷ 9 ﾒ 4 ﾊ 7 ﾃ
-      <animateTransform attributeName="transform" type="translate" values="0 -500; 0 500" dur="6s" repeatCount="indefinite" begin="2s"/>
-    </text>
-    <text x="850" y="0" class="mtx">ﾐ 2 5 ｷ 9 ﾂ 3 ﾈ 7 ｱ 1 ﾎ 4 ｼ 8 6 ﾒ 0 ﾊ
-      <animateTransform attributeName="transform" type="translate" values="0 -500; 0 500" dur="8s" repeatCount="indefinite" begin="0.5s"/>
-    </text>
-    <text x="920" y="0" class="mtx">4 ﾈ 1 ｼ 6 ﾎ 0 ﾂ 3 ﾐ 8 ｷ 5 ｱ 2 7 ﾃ 9 ﾊ
-      <animateTransform attributeName="transform" type="translate" values="0 -500; 0 500" dur="6.5s" repeatCount="indefinite" begin="3s"/>
-    </text>
-    <text x="990" y="0" class="mtx">9 ｱ 7 ﾂ 2 ｼ 4 ﾎ 1 ﾐ 6 ﾈ 0 ｷ 3 5 ﾊ 8 ﾒ
-      <animateTransform attributeName="transform" type="translate" values="0 -500; 0 500" dur="5.5s" repeatCount="indefinite" begin="1.5s"/>
-    </text>
-    <text x="1060" y="0" class="mtx">5 ｷ 0 ﾈ 3 ﾐ 8 ｱ 2 ﾂ 7 ｼ 4 ﾎ 1 6 ﾒ 9 ﾊ
-      <animateTransform attributeName="transform" type="translate" values="0 -500; 0 500" dur="7.5s" repeatCount="indefinite" begin="4s"/>
-    </text>
-    <text x="1130" y="0" class="mtx">ﾂ 8 2 ｼ 5 ﾎ 9 ｱ 1 ﾈ 6 ｷ 3 ﾐ 0 4 ﾊ 7 ﾒ
-      <animateTransform attributeName="transform" type="translate" values="0 -500; 0 500" dur="6.8s" repeatCount="indefinite" begin="2.5s"/>
-    </text>
-  </g>
-
-  <!-- ========== РАМКА ========== -->
+  <!-- РАМКА -->
   <rect x="10" y="10" width="1180" height="460" rx="16" 
         fill="none" stroke="#2DD4BF" stroke-opacity="0.35" stroke-width="1.5"/>
 
-  <!-- ========== БЕГУЩИЙ ТЕКСТ ПО 4 СТОРОНАМ (бесшовный) ========== -->
+  <!-- БЕГУЩИЙ ТЕКСТ ПО 4 СТОРОНАМ (длинный, 8 повторов, плавно) -->
   <g class="mono" font-size="11" fill="#2DD4BF" fill-opacity="0.55" letter-spacing="3">
-    <!-- ВЕРХ: текст длиной ~5 повторов, движется влево -->
+    <!-- ВЕРХ -->
     <text>
       <textPath href="#topPath" startOffset="0%">
-        <animate attributeName="startOffset" from="0%" to="-100%" dur="25s" repeatCount="indefinite"/>
-        · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING ·
+        <animate attributeName="startOffset" from="0%" to="-100%" dur="40s" repeatCount="indefinite"/>
+        · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING ·
       </textPath>
     </text>
 
-    <!-- НИЗ: текст длиной ~5 повторов, движется вправо -->
+    <!-- НИЗ -->
     <text>
       <textPath href="#bottomPath" startOffset="0%">
-        <animate attributeName="startOffset" from="0%" to="-100%" dur="25s" repeatCount="indefinite"/>
-        · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY ·
+        <animate attributeName="startOffset" from="0%" to="-100%" dur="40s" repeatCount="indefinite"/>
+        · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY ·
       </textPath>
     </text>
 
-    <!-- ЛЕВАЯ: 3 повтора -->
+    <!-- ЛЕВАЯ -->
     <text>
       <textPath href="#leftPath" startOffset="0%">
-        <animate attributeName="startOffset" from="0%" to="-100%" dur="20s" repeatCount="indefinite"/>
-        · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD ·
+        <animate attributeName="startOffset" from="0%" to="-100%" dur="35s" repeatCount="indefinite"/>
+        · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD ·
       </textPath>
     </text>
 
-    <!-- ПРАВАЯ: 3 повтора -->
+    <!-- ПРАВАЯ -->
     <text>
       <textPath href="#rightPath" startOffset="0%">
-        <animate attributeName="startOffset" from="0%" to="-100%" dur="20s" repeatCount="indefinite"/>
-        · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE ·
+        <animate attributeName="startOffset" from="0%" to="-100%" dur="35s" repeatCount="indefinite"/>
+        · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE ·
       </textPath>
     </text>
   </g>
 
-  <!-- ========== ТЕРМИНАЛ ========== -->
+  <!-- ТЕРМИНАЛ -->
   <g filter="url(#glow)">
     <rect x="60" y="120" width="500" height="240" rx="14"
           fill="#0D1117" fill-opacity="0.92"
@@ -134,14 +96,10 @@
   <circle cx="104" cy="139" r="5" fill="#FBBF24"/>
   <circle cx="122" cy="139" r="5" fill="#34D399"/>
 
-  <!-- Бегущая строка в шапке терминала -->
-  <g clip-path="url(#headerClip)">
-    <text class="mono" font-size="10" fill="#2DD4BF" fill-opacity="0.7">
-      <animateTransform attributeName="transform" type="translate" values="0 0; -560 0" dur="12s" repeatCount="indefinite"/>
-      <tspan x="170" y="143">[ CPU 42% | MEM 78% | NET OK | BUILD 1337 | UPTIME 99.9% | ERR 0 ]</tspan>
-      <tspan x="730" y="143">[ CPU 42% | MEM 78% | NET OK | BUILD 1337 | UPTIME 99.9% | ERR 0 ]</tspan>
-    </text>
-  </g>
+  <!-- Статичная статусная строка в шапке терминала (справа) -->
+  <text x="540" y="143" class="mono" font-size="9" fill="#2DD4BF" fill-opacity="0.65" text-anchor="end">
+    CPU 42% · MEM 78% · NET OK · UP 99.9%
+  </text>
 
   <!-- Основной текст терминала -->
   <g class="mono" font-size="12">
@@ -153,32 +111,33 @@
     <text x="86" y="297" fill="#8B949E">&gt; <tspan fill="#F8FAFC">location</tspan> : <tspan fill="#2DD4BF">Saint Petersburg</tspan></text>
     <text x="86" y="317" fill="#8B949E">&gt; <tspan fill="#F8FAFC">status</tspan>   : <tspan fill="#2DD4BF">[ ONLINE / LEARNING ]</tspan></text>
   </g>
+
+  <!-- Пульсирующий индикатор внутри терминала рядом с [ ONLINE ] -->
+  <circle class="online" cx="252" cy="312" r="4" fill="#34D399"/>
+
   <rect class="cursor" x="86" y="332" width="8" height="14" fill="#2DD4BF"/>
 
-  <!-- ========== WI-FI ИКОНКА ========== -->
-  <g transform="translate(575, 125)">
-    <circle cx="20" cy="32" r="2.5" fill="#2DD4BF"/>
-    <path class="wifi1" d="M 14 26 Q 20 21 26 26" stroke="#2DD4BF" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <path class="wifi2" d="M 9 21 Q 20 13 31 21"  stroke="#2DD4BF" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <path class="wifi3" d="M 4 16 Q 20 6 36 16"   stroke="#2DD4BF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- ОНИ-МАСКА (вместо хомячка) -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="530 95; 530 88; 530 95" dur="3s" repeatCount="indefinite"/>
+    <!-- Тень/свечение вокруг маски -->
+    <ellipse cx="25" cy="32" rx="22" ry="8" fill="#2DD4BF" fill-opacity="0.08"/>
+    <!-- Контур маски -->
+    <path d="M 4 -3 L 10 -16 L 16 -4 L 34 -4 L 40 -16 L 46 -3 L 49 10 L 45 26 L 38 34 L 25 37 L 12 34 L 5 26 L 1 10 Z" 
+          fill="#150505" stroke="#F87171" stroke-width="1.2" stroke-linejoin="round"/>
+    <!-- Рога (уже часть контура, но добавлю обводку по краям) -->
+    <!-- Светящиеся глаза -->
+    <ellipse class="oniEye" cx="14" cy="11" rx="4" ry="2.5" fill="#2DD4BF"/>
+    <ellipse class="oniEye" cx="36" cy="11" rx="4" ry="2.5" fill="#2DD4BF"/>
+    <!-- Зрачки -->
+    <ellipse cx="14" cy="11" rx="1.2" ry="1.8" fill="#0D1117"/>
+    <ellipse cx="36" cy="11" rx="1.2" ry="1.8" fill="#0D1117"/>
+    <!-- Рот с зубами -->
+    <path d="M 13 22 L 16 25 L 19 22 L 22 25 L 25 22 L 28 25 L 31 22 L 34 25 L 37 22" 
+          stroke="#F87171" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
   </g>
 
-  <!-- ========== КОТ НА ТЕРМИНАЛЕ ========== -->
-  <g transform="translate(540, 115)">
-    <ellipse cx="20" cy="25" rx="15" ry="12" fill="#FBBF24"/>
-    <circle cx="20" cy="10" r="10" fill="#FBBF24"/>
-    <path d="M12 3 L8 -5 L16 2 Z" fill="#FBBF24"/>
-    <path d="M28 3 L32 -5 L24 2 Z" fill="#FBBF24"/>
-    <circle cx="16" cy="10" r="1.5" fill="#0D1117"/>
-    <circle cx="24" cy="10" r="1.5" fill="#0D1117"/>
-    <circle cx="20" cy="13" r="1" fill="#F87171"/>
-    <g>
-      <animateTransform attributeName="transform" type="rotate" values="0 20 25; 20 20 25; 0 20 25" dur="1s" repeatCount="indefinite"/>
-      <path d="M30 25 Q35 20 32 15" stroke="#FBBF24" stroke-width="3" fill="none" stroke-linecap="round"/>
-    </g>
-  </g>
-
-  <!-- ========== ПАЙПЛАЙН ========== -->
+  <!-- ПАЙПЛАЙН -->
   <g transform="translate(640, 200)">
     <rect width="100" height="80" rx="12" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.4"/>
     <text x="50" y="35" class="mono" font-size="14" fill="#F8FAFC" font-weight="600" text-anchor="middle">Build</text>
@@ -210,12 +169,6 @@
     <text x="50" y="35" class="mono" font-size="14" fill="#F8FAFC" font-weight="600" text-anchor="middle">Deploy</text>
     <text x="50" y="55" class="mono" font-size="10" fill="#8B949E" text-anchor="middle">k8s rollout</text>
     <circle cx="50" cy="68" r="4" fill="#2DD4BF"/>
-  </g>
-
-  <!-- ========== ONLINE ИНДИКАТОР ========== -->
-  <g transform="translate(1055, 320)">
-    <circle class="online" cx="6" cy="6" r="5" fill="#34D399"/>
-    <text x="20" y="10" class="mono" font-size="11" fill="#34D399" font-weight="600">ONLINE</text>
   </g>
 
 </svg>
