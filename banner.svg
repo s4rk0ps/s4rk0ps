@@ -38,15 +38,23 @@
   <rect x="10" y="10" width="1180" height="460" rx="16" 
         fill="none" stroke="#2DD4BF" stroke-opacity="0.35" stroke-width="1.5"/>
 
-  <!-- БЕГУЩИЙ ТЕКСТ ПО РАМКЕ -->
-  <text class="mono" font-size="11" fill="#2DD4BF" fill-opacity="0.55" letter-spacing="2">
-    <textPath href="#borderPath">
-      <animate attributeName="startOffset" from="0%" to="100%" dur="40s" repeatCount="indefinite"/>
-      · DEVOPS ENGINEER · CI/CD PIPELINE · CLOUD AUTOMATION · OBSERVABILITY · INFRASTRUCTURE AS CODE · MONITORING · CONTINUOUS DELIVERY · · DEVOPS ENGINEER · CI/CD PIPELINE · CLOUD AUTOMATION · OBSERVABILITY · INFRASTRUCTURE AS CODE · MONITORING · CONTINUOUS DELIVERY · · DEVOPS ENGINEER · CI/CD PIPELINE · CLOUD AUTOMATION · OBSERVABILITY · INFRASTRUCTURE AS CODE · MONITORING · CONTINUOUS DELIVERY · · DEVOPS ENGINEER · CI/CD PIPELINE · CLOUD AUTOMATION · OBSERVABILITY · INFRASTRUCTURE AS CODE · MONITORING · CONTINUOUS DELIVERY · · DEVOPS ENGINEER · CI/CD PIPELINE · CLOUD AUTOMATION ·
-    </textPath>
-  </text>
+  <!-- БЕГУЩИЙ ТЕКСТ ПО РАМКЕ (БЕСКОНЕЧНЫЙ) -->
+  <g class="mono" font-size="11" fill="#2DD4BF" fill-opacity="0.55" letter-spacing="2">
+    <text>
+      <textPath href="#borderPath" startOffset="0%">
+        <animate attributeName="startOffset" from="100%" to="-100%" dur="60s" repeatCount="indefinite"/>
+        · DEVOPS ENGINEER · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING ·
+      </textPath>
+    </text>
+    <text>
+      <textPath href="#borderPath" startOffset="50%">
+        <animate attributeName="startOffset" from="150%" to="-50%" dur="60s" repeatCount="indefinite"/>
+        · DEVOPS ENGINEER · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING ·
+      </textPath>
+    </text>
+  </g>
 
-  <!-- ТЕРМИНАЛ (уменьшен) -->
+  <!-- ТЕРМИНАЛ -->
   <g filter="url(#glow)">
     <rect x="60" y="120" width="500" height="240" rx="14"
           fill="#0D1117" fill-opacity="0.92"
@@ -62,59 +70,66 @@
   <g class="mono" font-size="12">
     <text x="86" y="185" fill="#8B949E">$ <tspan fill="#F8FAFC">whoami</tspan></text>
     <text x="86" y="207" fill="#2DD4BF">&gt; 5up.5vc.4c4rn0ph0b1cs</text>
-
     <text x="86" y="235" fill="#8B949E">$ <tspan fill="#F8FAFC">cat /etc/status.conf</tspan></text>
     <text x="86" y="257" fill="#8B949E">&gt; <tspan fill="#F8FAFC">role</tspan>     : <tspan fill="#2DD4BF">Aspiring DevOps Engineer</tspan></text>
     <text x="86" y="277" fill="#8B949E">&gt; <tspan fill="#F8FAFC">stack</tspan>    : <tspan fill="#2DD4BF">Cloud / CI/CD / Infra</tspan></text>
     <text x="86" y="297" fill="#8B949E">&gt; <tspan fill="#F8FAFC">location</tspan> : <tspan fill="#2DD4BF">Saint Petersburg</tspan></text>
     <text x="86" y="317" fill="#8B949E">&gt; <tspan fill="#F8FAFC">status</tspan>   : <tspan fill="#2DD4BF">[ ONLINE / LEARNING ]</tspan></text>
   </g>
-
   <rect class="cursor" x="86" y="332" width="8" height="14" fill="#2DD4BF"/>
 
-  <!-- СПРАВА: DEVOPS-ПЛАШКИ -->
-  <!-- Row 1 -->
-  <g transform="translate(620, 140)">
-    <rect width="165" height="65" rx="10" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.35"/>
-    <circle cx="22" cy="32" r="5" fill="#2496ED"/>
-    <text x="40" y="28" class="mono" font-size="13" fill="#F8FAFC" font-weight="600">Docker</text>
-    <text x="40" y="46" class="mono" font-size="10" fill="#8B949E">containers</text>
+  <!-- ПРАВАЯ ЧАСТЬ: ИКОНКИ В КРУГАХ С ПРОГРЕСС-БАРАМИ -->
+  <!-- Docker -->
+  <g transform="translate(660, 130)">
+    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
+    <!-- Прогресс-бар (дуга) -->
+    <path d="M 40 6 A 34 34 0 0 1 74 40" fill="none" stroke="#2496ED" stroke-width="3" stroke-linecap="round"/>
+    <!-- Иконка Docker (упрощенная) -->
+    <path d="M25 40 H55 M30 35 H50 M35 30 H45" stroke="#2496ED" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">Docker</text>
   </g>
 
-  <g transform="translate(798, 140)">
-    <rect width="165" height="65" rx="10" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.35"/>
-    <circle cx="22" cy="32" r="5" fill="#326CE5"/>
-    <text x="40" y="28" class="mono" font-size="13" fill="#F8FAFC" font-weight="600">Kubernetes</text>
-    <text x="40" y="46" class="mono" font-size="10" fill="#8B949E">orchestration</text>
+  <!-- Kubernetes -->
+  <g transform="translate(790, 130)">
+    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M 40 6 A 34 34 0 0 1 68 20" fill="none" stroke="#326CE5" stroke-width="3" stroke-linecap="round"/>
+    <path d="M40 22 L50 30 L46 42 H34 L30 30 Z" fill="none" stroke="#326CE5" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">Kubernetes</text>
   </g>
 
-  <g transform="translate(976, 140)">
-    <rect width="165" height="65" rx="10" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.35"/>
-    <circle cx="22" cy="32" r="5" fill="#FCC624"/>
-    <text x="40" y="28" class="mono" font-size="13" fill="#F8FAFC" font-weight="600">Linux</text>
-    <text x="40" y="46" class="mono" font-size="10" fill="#8B949E">sysadmin</text>
+  <!-- Linux -->
+  <g transform="translate(920, 130)">
+    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M 40 6 A 34 34 0 0 1 74 40" fill="none" stroke="#FCC624" stroke-width="3" stroke-linecap="round"/>
+    <path d="M35 35 Q40 25 45 35 Q48 40 45 45 Q40 50 35 45 Q32 40 35 35 Z" fill="none" stroke="#FCC624" stroke-width="2.5"/>
+    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">Linux</text>
   </g>
 
-  <!-- Row 2 -->
-  <g transform="translate(620, 220)">
-    <rect width="165" height="65" rx="10" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.35"/>
-    <circle cx="22" cy="32" r="5" fill="#FF9900"/>
-    <text x="40" y="28" class="mono" font-size="13" fill="#F8FAFC" font-weight="600">AWS</text>
-    <text x="40" y="46" class="mono" font-size="10" fill="#8B949E">cloud</text>
+  <!-- AWS -->
+  <g transform="translate(660, 250)">
+    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M 40 6 A 34 34 0 0 1 68 20" fill="none" stroke="#FF9900" stroke-width="3" stroke-linecap="round"/>
+    <path d="M30 40 Q40 28 50 40" fill="none" stroke="#FF9900" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">AWS</text>
   </g>
 
-  <g transform="translate(798, 220)">
-    <rect width="165" height="65" rx="10" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.35"/>
-    <circle cx="22" cy="32" r="5" fill="#7B42BC"/>
-    <text x="40" y="28" class="mono" font-size="13" fill="#F8FAFC" font-weight="600">Terraform</text>
-    <text x="40" y="46" class="mono" font-size="10" fill="#8B949E">infra as code</text>
+  <!-- Terraform -->
+  <g transform="translate(790, 250)">
+    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M 40 6 A 34 34 0 0 1 74 40" fill="none" stroke="#7B42BC" stroke-width="3" stroke-linecap="round"/>
+    <path d="M38 25 L50 32 L50 48 L38 41 Z M50 32 L62 25 L62 41 L50 48 Z" fill="none" stroke="#7B42BC" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">Terraform</text>
   </g>
 
-  <g transform="translate(976, 220)">
-    <rect width="165" height="65" rx="10" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.35"/>
-    <circle cx="22" cy="32" r="5" fill="#F05032"/>
-    <text x="40" y="28" class="mono" font-size="13" fill="#F8FAFC" font-weight="600">Git</text>
-    <text x="40" y="46" class="mono" font-size="10" fill="#8B949E">versioning</text>
+  <!-- Git -->
+  <g transform="translate(920, 250)">
+    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M 40 6 A 34 34 0 0 1 74 40" fill="none" stroke="#F05032" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="35" cy="30" r="4" fill="none" stroke="#F05032" stroke-width="2.5"/>
+    <circle cx="35" cy="50" r="4" fill="none" stroke="#F05032" stroke-width="2.5"/>
+    <circle cx="50" cy="40" r="4" fill="none" stroke="#F05032" stroke-width="2.5"/>
+    <path d="M35 34 V46 M39 30 L46 37 M39 50 L46 43" stroke="#F05032" stroke-width="2.5"/>
+    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">Git</text>
   </g>
 
 </svg>
