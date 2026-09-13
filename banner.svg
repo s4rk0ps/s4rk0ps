@@ -26,18 +26,10 @@
       .mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace; }
       .cursor { animation: blink 1s steps(1) infinite; }
       @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
-
       .flow { stroke-dasharray: 6 6; animation: dashFlow 1.5s linear infinite; }
       @keyframes dashFlow { to { stroke-dashoffset: -24; } }
-
       .online { animation: onlinePulse 2s ease-in-out infinite; }
-      @keyframes onlinePulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
-
-      .blinkEyes { animation: eyeBlink 4s ease-in-out infinite; }
-      @keyframes eyeBlink { 0%,44%,48%,100% { transform: scaleY(1); } 46% { transform: scaleY(0.05); } }
-
-      .girlFloat { animation: girlFloat 4s ease-in-out infinite; }
-      @keyframes girlFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+      @keyframes onlinePulse { 0%,100% { opacity: 0.25; } 50% { opacity: 1; } }
     </style>
   </defs>
 
@@ -52,30 +44,71 @@
   <rect x="10" y="10" width="1180" height="460" rx="16" 
         fill="none" stroke="#2DD4BF" stroke-opacity="0.35" stroke-width="1.5"/>
 
-  <!-- БЕГУЩИЙ ТЕКСТ ПО 4 СТОРОНАМ -->
+  <!-- GITHUB ЛОГОТИП (вместо девочки) -->
+  <g transform="translate(28, 50) scale(1.5)">
+    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#2DD4BF" fill-opacity="0.85"/>
+  </g>
+
+  <!-- БЕГУЩИЙ ТЕКСТ (2 СЛОЯ НА КАЖДУЮ СТОРОНУ — БЕЗ РЫВКОВ) -->
   <g class="mono" font-size="11" fill="#2DD4BF" fill-opacity="0.55" letter-spacing="3">
+
+    <!-- ВЕРХ: слой A (уходит влево) -->
     <text>
       <textPath href="#topPath" startOffset="0%">
-        <animate attributeName="startOffset" from="0%" to="-100%" dur="40s" repeatCount="indefinite"/>
-        · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING ·
+        <animate attributeName="startOffset" from="0%" to="-100%" dur="50s" repeatCount="indefinite" calcMode="linear"/>
+        · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING ·
       </textPath>
     </text>
+    <!-- ВЕРХ: слой B (заходит справа) -->
+    <text>
+      <textPath href="#topPath" startOffset="100%">
+        <animate attributeName="startOffset" from="100%" to="0%" dur="50s" repeatCount="indefinite" calcMode="linear"/>
+        · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING · · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · INFRA AS CODE · MONITORING ·
+      </textPath>
+    </text>
+
+    <!-- НИЗ: слой A -->
     <text>
       <textPath href="#bottomPath" startOffset="0%">
-        <animate attributeName="startOffset" from="0%" to="-100%" dur="40s" repeatCount="indefinite"/>
-        · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY ·
+        <animate attributeName="startOffset" from="0%" to="-100%" dur="50s" repeatCount="indefinite" calcMode="linear"/>
+        · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY ·
       </textPath>
     </text>
+    <!-- НИЗ: слой B -->
+    <text>
+      <textPath href="#bottomPath" startOffset="100%">
+        <animate attributeName="startOffset" from="100%" to="0%" dur="50s" repeatCount="indefinite" calcMode="linear"/>
+        · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY · · INFRA AS CODE · MONITORING · DEVOPS · CI/CD · CLOUD · AUTOMATION · OBSERVABILITY ·
+      </textPath>
+    </text>
+
+    <!-- ЛЕВАЯ: слой A -->
     <text>
       <textPath href="#leftPath" startOffset="0%">
-        <animate attributeName="startOffset" from="0%" to="-100%" dur="35s" repeatCount="indefinite"/>
-        · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD ·
+        <animate attributeName="startOffset" from="0%" to="-100%" dur="40s" repeatCount="indefinite" calcMode="linear"/>
+        · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD ·
       </textPath>
     </text>
+    <!-- ЛЕВАЯ: слой B -->
+    <text>
+      <textPath href="#leftPath" startOffset="100%">
+        <animate attributeName="startOffset" from="100%" to="0%" dur="40s" repeatCount="indefinite" calcMode="linear"/>
+        · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD · DEVOPS · OBSERVABILITY · CLOUD · CI/CD ·
+      </textPath>
+    </text>
+
+    <!-- ПРАВАЯ: слой A -->
     <text>
       <textPath href="#rightPath" startOffset="0%">
-        <animate attributeName="startOffset" from="0%" to="-100%" dur="35s" repeatCount="indefinite"/>
-        · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE ·
+        <animate attributeName="startOffset" from="0%" to="-100%" dur="40s" repeatCount="indefinite" calcMode="linear"/>
+        · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE ·
+      </textPath>
+    </text>
+    <!-- ПРАВАЯ: слой B -->
+    <text>
+      <textPath href="#rightPath" startOffset="100%">
+        <animate attributeName="startOffset" from="100%" to="0%" dur="40s" repeatCount="indefinite" calcMode="linear"/>
+        · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE · DEVOPS · CI/CD · MONITORING · INFRA AS CODE ·
       </textPath>
     </text>
   </g>
@@ -96,7 +129,6 @@
     CPU 42% · MEM 78% · NET OK · UP 99.9%
   </text>
 
-  <!-- ТЕКСТ ТЕРМИНАЛА -->
   <g class="mono" font-size="12">
     <text x="86" y="185" fill="#8B949E">$ <tspan fill="#F8FAFC">whoami</tspan></text>
     <text x="86" y="207" fill="#2DD4BF">&gt; 5up.5vc.4c4rn0ph0b1cs</text>
@@ -104,86 +136,13 @@
     <text x="86" y="257" fill="#8B949E">&gt; <tspan fill="#F8FAFC">role</tspan>     : <tspan fill="#2DD4BF">Aspiring DevOps Engineer</tspan></text>
     <text x="86" y="277" fill="#8B949E">&gt; <tspan fill="#F8FAFC">stack</tspan>    : <tspan fill="#2DD4BF">Cloud / CI/CD / Infra</tspan></text>
     <text x="86" y="297" fill="#8B949E">&gt; <tspan fill="#F8FAFC">location</tspan> : <tspan fill="#2DD4BF">Saint Petersburg</tspan></text>
-    <text x="86" y="317" fill="#8B949E">&gt; <tspan fill="#F8FAFC">status</tspan>   :   <tspan fill="#2DD4BF">ONLINE / LEARNING</tspan></text>
+    <text x="86" y="317" fill="#8B949E">&gt; <tspan fill="#F8FAFC">status</tspan>   :    <tspan fill="#2DD4BF">ONLINE / LEARNING</tspan></text>
   </g>
 
-  <!-- Пульсирующий индикатор ПЕРЕД ONLINE (скобки убраны) -->
-  <circle class="online" cx="165" cy="313" r="4" fill="#34D399"/>
+  <!-- Пульсирующий индикатор перед ONLINE (x=178, y=313) -->
+  <circle class="online" cx="178" cy="313" r="4" fill="#34D399"/>
 
   <rect class="cursor" x="86" y="332" width="8" height="14" fill="#2DD4BF"/>
-
-  <!-- АНИМЕ-ДЕВОЧКА, ВЫГЛЯДЫВАЮЩАЯ ИЗ-ЗА ТЕРМИНАЛА -->
-  <g class="girlFloat" transform="translate(340, 5)">
-    <!-- Длинные волосы (задний слой) -->
-    <path d="M 0 40 Q -8 5 25 -8 Q 55 -20 90 -8 Q 123 5 115 40 L 115 130 L 100 130 L 95 70 L 45 70 L 35 130 L 25 130 L 15 130 Z" 
-          fill="#1a1a22"/>
-
-    <!-- Лицо -->
-    <ellipse cx="57" cy="58" rx="28" ry="32" fill="#f8e2d5"/>
-
-    <!-- Чёлка (передние волосы) -->
-    <path d="M 22 45 Q 24 18 57 12 Q 90 18 92 45 L 92 56 
-             L 86 56 Q 85 32 76 30 L 73 54 L 65 54 L 62 30 L 57 30 L 52 54 
-             L 44 54 L 41 30 L 32 32 L 26 56 Z" 
-          fill="#1a1a22"/>
-
-    <!-- Боковые пряди -->
-    <path d="M 22 45 L 20 92 L 24 94 L 28 56 Z" fill="#1a1a22"/>
-    <path d="M 92 45 L 94 92 L 90 94 L 86 56 Z" fill="#1a1a22"/>
-
-    <!-- Заколка-сердечко слева -->
-    <path d="M 26 30 Q 30 26 33 30 Q 36 26 40 30 Q 40 34 33 38 Q 26 34 26 30 Z" fill="#2DD4BF"/>
-
-    <!-- Заколка слева от чёлки (декоративная) -->
-    <path d="M 20 25 L 24 20 L 28 25 L 24 30 Z" fill="#2DD4BF" opacity="0.7"/>
-
-    <!-- ГЛАЗА (большие, аниме) -->
-    <g class="blinkEyes" style="transform-origin: 44px 62px; transform-box: fill-box;">
-      <ellipse cx="44" cy="62" rx="9" ry="11" fill="#2a2a38"/>
-      <circle cx="41" cy="57" r="3.2" fill="#ffffff"/>
-      <circle cx="47" cy="66" r="1.3" fill="#ffffff" fill-opacity="0.7"/>
-      <path d="M 34 57 Q 44 52 54 57" stroke="#1a1a22" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    </g>
-    <g class="blinkEyes" style="transform-origin: 72px 62px; transform-box: fill-box;">
-      <ellipse cx="72" cy="62" rx="9" ry="11" fill="#2a2a38"/>
-      <circle cx="69" cy="57" r="3.2" fill="#ffffff"/>
-      <circle cx="75" cy="66" r="1.3" fill="#ffffff" fill-opacity="0.7"/>
-      <path d="M 62 57 Q 72 52 82 57" stroke="#1a1a22" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    </g>
-
-    <!-- Ресницы нижние -->
-    <path d="M 37 70 Q 44 73 51 70" stroke="#1a1a22" stroke-width="1.2" fill="none"/>
-    <path d="M 65 70 Q 72 73 79 70" stroke="#1a1a22" stroke-width="1.2" fill="none"/>
-
-    <!-- Румянец -->
-    <ellipse cx="34" cy="78" rx="6" ry="3.5" fill="#f0a0b0" opacity="0.55"/>
-    <ellipse cx="80" cy="78" rx="6" ry="3.5" fill="#f0a0b0" opacity="0.55"/>
-
-    <!-- Нос -->
-    <circle cx="57" cy="73" r="0.9" fill="#c0a090"/>
-
-    <!-- Маленький рот -->
-    <path d="M 53 80 Q 57 82 61 80" stroke="#5a2030" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-
-    <!-- Слёзка / капелька -->
-    <ellipse cx="30" cy="70" rx="1.2" ry="2" fill="#a8d8e8" opacity="0.7"/>
-
-    <!-- РУКИ, ДЕРЖАЩИЕСЯ ЗА КРАЙ ТЕРМИНАЛА -->
-    <!-- Левая рука -->
-    <g transform="translate(38, 108)">
-      <rect x="0" y="4" width="22" height="8" rx="3" fill="#f8e2d5" stroke="#1a1a22" stroke-width="1"/>
-      <ellipse cx="5" cy="4" rx="3.5" ry="3" fill="#f8e2d5" stroke="#1a1a22" stroke-width="0.8"/>
-      <ellipse cx="11" cy="3.5" rx="3.5" ry="3" fill="#f8e2d5" stroke="#1a1a22" stroke-width="0.8"/>
-      <ellipse cx="17" cy="4" rx="3.5" ry="3" fill="#f8e2d5" stroke="#1a1a22" stroke-width="0.8"/>
-    </g>
-    <!-- Правая рука -->
-    <g transform="translate(60, 108)">
-      <rect x="0" y="4" width="22" height="8" rx="3" fill="#f8e2d5" stroke="#1a1a22" stroke-width="1"/>
-      <ellipse cx="5" cy="4" rx="3.5" ry="3" fill="#f8e2d5" stroke="#1a1a22" stroke-width="0.8"/>
-      <ellipse cx="11" cy="3.5" rx="3.5" ry="3" fill="#f8e2d5" stroke="#1a1a22" stroke-width="0.8"/>
-      <ellipse cx="17" cy="4" rx="3.5" ry="3" fill="#f8e2d5" stroke="#1a1a22" stroke-width="0.8"/>
-    </g>
-  </g>
 
   <!-- ПАЙПЛАЙН -->
   <g transform="translate(640, 200)">
@@ -218,5 +177,4 @@
     <text x="50" y="55" class="mono" font-size="10" fill="#8B949E" text-anchor="middle">k8s rollout</text>
     <circle cx="50" cy="68" r="4" fill="#2DD4BF"/>
   </g>
-
 </svg>
