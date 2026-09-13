@@ -1,6 +1,6 @@
 <svg width="1200" height="480" viewBox="0 0 1200 480" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">s4rk0ps — DevOps banner</title>
-  <desc id="desc">Terminal window and DevOps stack over a supermarket background.</desc>
+  <desc id="desc">Terminal window and DevOps pipeline over a supermarket background.</desc>
 
   <defs>
     <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
@@ -20,10 +20,16 @@
     <!-- Путь для бегущего текста по рамке -->
     <path id="borderPath" d="M 26 10 Q 10 10 10 26 L 10 454 Q 10 470 26 470 L 1174 470 Q 1190 470 1190 454 L 1190 26 Q 1190 10 1174 10 Z" fill="none"/>
 
+    <!-- Пути для анимации пайплайна -->
+    <path id="pipelinePath1" d="M 640 200 L 760 200" fill="none"/>
+    <path id="pipelinePath2" d="M 840 200 L 960 200" fill="none"/>
+
     <style>
       .mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace; }
       .cursor { animation: blink 1s steps(1) infinite; }
       @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+      .flow { stroke-dasharray: 6 6; animation: dashFlow 1.5s linear infinite; }
+      @keyframes dashFlow { to { stroke-dashoffset: -24; } }
     </style>
   </defs>
 
@@ -78,58 +84,53 @@
   </g>
   <rect class="cursor" x="86" y="332" width="8" height="14" fill="#2DD4BF"/>
 
-  <!-- ПРАВАЯ ЧАСТЬ: ИКОНКИ В КРУГАХ С ПРОГРЕСС-БАРАМИ -->
-  <!-- Docker -->
-  <g transform="translate(660, 130)">
-    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
-    <!-- Прогресс-бар (дуга) -->
-    <path d="M 40 6 A 34 34 0 0 1 74 40" fill="none" stroke="#2496ED" stroke-width="3" stroke-linecap="round"/>
-    <!-- Иконка Docker (упрощенная) -->
-    <path d="M25 40 H55 M30 35 H50 M35 30 H45" stroke="#2496ED" stroke-width="2.5" stroke-linecap="round"/>
-    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">Docker</text>
+  <!-- ПРАВАЯ ЧАСТЬ: АНИМИРОВАННЫЙ ПАЙПЛАЙН -->
+  <!-- Этап 1: Build -->
+  <g transform="translate(640, 160)">
+    <rect width="100" height="80" rx="12" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.4"/>
+    <text x="50" y="35" class="mono" font-size="14" fill="#F8FAFC" font-weight="600" text-anchor="middle">Build</text>
+    <text x="50" y="55" class="mono" font-size="10" fill="#8B949E" text-anchor="middle">docker build</text>
+    <circle cx="50" cy="68" r="4" fill="#34D399"/>
   </g>
 
-  <!-- Kubernetes -->
-  <g transform="translate(790, 130)">
-    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
-    <path d="M 40 6 A 34 34 0 0 1 68 20" fill="none" stroke="#326CE5" stroke-width="3" stroke-linecap="round"/>
-    <path d="M40 22 L50 30 L46 42 H34 L30 30 Z" fill="none" stroke="#326CE5" stroke-width="2.5" stroke-linejoin="round"/>
-    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">Kubernetes</text>
+  <!-- Линия 1 -->
+  <line x1="740" y1="200" x2="840" y2="200" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="2"/>
+  <line x1="740" y1="200" x2="840" y2="200" stroke="#2DD4BF" stroke-width="2" class="flow"/>
+  <circle r="4" fill="#2DD4BF">
+    <animateMotion dur="1.5s" repeatCount="indefinite" path="M740,200 L840,200"/>
+  </circle>
+
+  <!-- Этап 2: Test -->
+  <g transform="translate(840, 160)">
+    <rect width="100" height="80" rx="12" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.4"/>
+    <text x="50" y="35" class="mono" font-size="14" fill="#F8FAFC" font-weight="600" text-anchor="middle">Test</text>
+    <text x="50" y="55" class="mono" font-size="10" fill="#8B949E" text-anchor="middle">pytest / jest</text>
+    <circle cx="50" cy="68" r="4" fill="#FBBF24"/>
   </g>
 
-  <!-- Linux -->
-  <g transform="translate(920, 130)">
-    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
-    <path d="M 40 6 A 34 34 0 0 1 74 40" fill="none" stroke="#FCC624" stroke-width="3" stroke-linecap="round"/>
-    <path d="M35 35 Q40 25 45 35 Q48 40 45 45 Q40 50 35 45 Q32 40 35 35 Z" fill="none" stroke="#FCC624" stroke-width="2.5"/>
-    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">Linux</text>
+  <!-- Линия 2 -->
+  <line x1="940" y1="200" x2="1040" y2="200" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="2"/>
+  <line x1="940" y1="200" x2="1040" y2="200" stroke="#2DD4BF" stroke-width="2" class="flow"/>
+  <circle r="4" fill="#2DD4BF">
+    <animateMotion dur="1.5s" repeatCount="indefinite" path="M940,200 L1040,200"/>
+  </circle>
+
+  <!-- Этап 3: Deploy -->
+  <g transform="translate(1040, 160)">
+    <rect width="100" height="80" rx="12" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.4"/>
+    <text x="50" y="35" class="mono" font-size="14" fill="#F8FAFC" font-weight="600" text-anchor="middle">Deploy</text>
+    <text x="50" y="55" class="mono" font-size="10" fill="#8B949E" text-anchor="middle">k8s rollout</text>
+    <circle cx="50" cy="68" r="4" fill="#2DD4BF"/>
   </g>
 
-  <!-- AWS -->
-  <g transform="translate(660, 250)">
-    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
-    <path d="M 40 6 A 34 34 0 0 1 68 20" fill="none" stroke="#FF9900" stroke-width="3" stroke-linecap="round"/>
-    <path d="M30 40 Q40 28 50 40" fill="none" stroke="#FF9900" stroke-width="2.5" stroke-linecap="round"/>
-    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">AWS</text>
+  <!-- Нижняя бегущая строка с иконками (маркиза) -->
+  <g transform="translate(640, 290)">
+    <rect width="500" height="30" rx="15" fill="#0D1117" fill-opacity="0.7" stroke="#2DD4BF" stroke-opacity="0.2"/>
+    <g class="mono" font-size="11" fill="#2DD4BF" fill-opacity="0.6">
+      <text>
+        <animateMotion dur="20s" repeatCount="indefinite" path="M 0,15 L 500,15"/>
+        <tspan>Docker</tspan><tspan dx="20" fill="#8B949E">·</tspan><tspan dx="20">Kubernetes</tspan><tspan dx="20" fill="#8B949E">·</tspan><tspan dx="20">Linux</tspan><tspan dx="20" fill="#8B949E">·</tspan><tspan dx="20">AWS</tspan><tspan dx="20" fill="#8B949E">·</tspan><tspan dx="20">Terraform</tspan><tspan dx="20" fill="#8B949E">·</tspan><tspan dx="20">Git</tspan>
+      </text>
+    </g>
   </g>
-
-  <!-- Terraform -->
-  <g transform="translate(790, 250)">
-    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
-    <path d="M 40 6 A 34 34 0 0 1 74 40" fill="none" stroke="#7B42BC" stroke-width="3" stroke-linecap="round"/>
-    <path d="M38 25 L50 32 L50 48 L38 41 Z M50 32 L62 25 L62 41 L50 48 Z" fill="none" stroke="#7B42BC" stroke-width="2.5" stroke-linejoin="round"/>
-    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">Terraform</text>
-  </g>
-
-  <!-- Git -->
-  <g transform="translate(920, 250)">
-    <circle cx="40" cy="40" r="34" fill="#0D1117" fill-opacity="0.85" stroke="#2DD4BF" stroke-opacity="0.3" stroke-width="1"/>
-    <path d="M 40 6 A 34 34 0 0 1 74 40" fill="none" stroke="#F05032" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="35" cy="30" r="4" fill="none" stroke="#F05032" stroke-width="2.5"/>
-    <circle cx="35" cy="50" r="4" fill="none" stroke="#F05032" stroke-width="2.5"/>
-    <circle cx="50" cy="40" r="4" fill="none" stroke="#F05032" stroke-width="2.5"/>
-    <path d="M35 34 V46 M39 30 L46 37 M39 50 L46 43" stroke="#F05032" stroke-width="2.5"/>
-    <text x="40" y="88" class="mono" font-size="11" fill="#F8FAFC" text-anchor="middle">Git</text>
-  </g>
-
 </svg>
