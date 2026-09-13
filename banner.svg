@@ -251,27 +251,10 @@
       <text x="860" y="324" fill="#F8FAFC">redis</text>
     </g>
 
-    <!-- ========== ЦИТАТА ========== -->
-    <g class="mono">
-      <!-- Команда -->
-      <text x="950" y="242" font-size="7" fill="#34D399" fill-opacity="0.9">
-        <tspan fill="#8B949E" fill-opacity="0.6">$</tspan> cat /saya/note
-      </text>
       
       <!-- Разделитель под командой -->
       <line x1="950" y1="246" x2="1035" y2="246" stroke="#2DD4BF" stroke-opacity="0.15" stroke-width="0.5"/>
       
-      <!-- Цитата — 7 строк -->
-      <g font-size="6.5" fill="#2DD4BF" fill-opacity="0.85">
-        <text x="950" y="260">&gt; Как и чистый кислород, голая правда</text>
-        <text x="956" y="271">разрушает людские умы. Кислород</text>
-        <text x="956" y="282">становится воздухом, лишь когда</text>
-        <text x="956" y="293">в него добавляют в пять раз больше</text>
-        <text x="956" y="304">азота.</text>
-        <text x="950" y="316">&gt; Также и с правдой — разбавляя её</text>
-        <text x="956" y="327">ложью, люди сохраняют равновесие.</text>
-      </g>
-    </g>
 
     <!-- SAYA -->
     <g class="sayaGlitch">
